@@ -1,8 +1,12 @@
 import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import TopicCreator from "@/components/TopicCreator";
+import { redis } from "@/lib/redis";
+import { Star } from "lucide-react";
 
-export default function Home() {
+export default async function Home() {
+  const servedRequests = await redis.get("served-requests");
+
   return (
     <section className="min-h-screen bg-grid-zinc-50">
       <MaxWidthWrapper className="relative pb-24 pt-10 sm:pb-32 lg:pt-24 lg:pb-52 xl:pt-32">
@@ -27,6 +31,23 @@ export default function Home() {
               about...
             </h1>
             <TopicCreator />
+            <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-start">
+              <div className="flex flex-col gap-1 justify-between items-center sm:items-start">
+                <div className="flex gap-0.5">
+                  <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                  <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                  <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                  <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                  <Star className="h-4 w-4 text-green-600 fill-green-600" />
+                </div>
+                <p>
+                  <span className="font-semibold">
+                    {Math.ceil(Number(servedRequests) / 10) * 10}
+                  </span>{" "}
+                  served requests
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </MaxWidthWrapper>
