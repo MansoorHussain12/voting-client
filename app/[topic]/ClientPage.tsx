@@ -116,7 +116,7 @@ const ClientPage = ({ topicName, initialData }: Props) => {
 
         <div className="max-w-lg w-full">
           <Label className="font-semibold tracking-tight text-lg pb-2">
-            Here's what I think about {topicName}
+            Here is what I think about {topicName}
           </Label>
           <div className="mt-1 flex gap-2 items-center">
             <Input
