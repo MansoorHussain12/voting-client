@@ -23,7 +23,7 @@ const TopicCreator = () => {
           onChange={({ target }) => setInput(target.value)}
         />
         <Button
-          disabled={isPending}
+          disabled={isPending || input.length === 0}
           onClick={() => mutate({ topicName: input })}
         >
           Create
