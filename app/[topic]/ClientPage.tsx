@@ -88,8 +88,8 @@ const ClientPage = ({ topicName, initialData }: Props) => {
         <div className="aspect-square max-w-xl flex items-center justify-center">
           <Wordcloud
             words={words}
-            width={300}
-            height={300}
+            width={500}
+            height={500}
             fontSize={(data) => fontScale(data.value)}
             font={"Impact"}
             padding={2}
